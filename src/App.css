@@ -1,0 +1,108 @@
+.app-loading {
+  min-height: 100dvh;
+  background: var(--bg);
+}
+
+.app {
+  position: relative;
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.app__bg {
+  position: fixed;
+  inset: -15%;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 15% 10%, rgba(124, 92, 255, 0.28), transparent 42%),
+    radial-gradient(circle at 85% 0%, rgba(45, 212, 191, 0.2), transparent 40%),
+    radial-gradient(circle at 50% 100%, rgba(255, 92, 158, 0.16), transparent 45%);
+  filter: blur(10px);
+}
+
+.app__shell {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 480px;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 640px) {
+  .app__shell {
+    max-height: 92dvh;
+    min-height: 640px;
+    margin: 4dvh auto;
+    border-radius: 32px;
+    border: 1px solid var(--panel-border);
+    background: rgba(15, 15, 22, 0.4);
+    backdrop-filter: blur(24px);
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+  }
+}
+
+.app__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px 10px;
+  flex-shrink: 0;
+}
+
+.app__title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.app__title-badge {
+  width: 34px;
+  height: 34px;
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: white;
+}
+
+.app__title h1 {
+  font-size: 1.3rem;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.app__header-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.icon-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  border: 1px solid var(--field-border);
+  background: var(--field-bg);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.icon-btn:active {
+  transform: scale(0.93);
+}
+
+.icon-btn--accent {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  border-color: transparent;
+  color: white;
+  box-shadow: 0 10px 24px rgba(124, 92, 255, 0.35);
+}

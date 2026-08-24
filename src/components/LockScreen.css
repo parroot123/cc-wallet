@@ -1,0 +1,129 @@
+.lock-screen {
+  position: relative;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  overflow: hidden;
+}
+
+.lock-screen__bg {
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(124, 92, 255, 0.35), transparent 45%),
+    radial-gradient(circle at 80% 15%, rgba(45, 212, 191, 0.25), transparent 40%),
+    radial-gradient(circle at 50% 90%, rgba(255, 92, 158, 0.2), transparent 45%);
+  filter: blur(10px);
+  animation: drift 18s ease-in-out infinite alternate;
+}
+
+@keyframes drift {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(-2%, 2%, 0) scale(1.05);
+  }
+}
+
+.lock-screen__panel {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: 28px;
+  padding: 36px 28px 28px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+  text-align: center;
+}
+
+.lock-screen__icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 18px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: white;
+  box-shadow: 0 10px 30px rgba(124, 92, 255, 0.45);
+}
+
+.lock-screen__panel h1 {
+  font-size: 1.35rem;
+  margin: 0 0 8px;
+  color: var(--text-primary);
+}
+
+.lock-screen__subtitle {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.45;
+  margin: 0 0 24px;
+}
+
+.lock-screen__form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.lock-screen__input {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid var(--field-border);
+  background: var(--field-bg);
+  color: var(--text-primary);
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.lock-screen__input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(124, 92, 255, 0.2);
+}
+
+.lock-screen__error {
+  color: #ff8a8a;
+  font-size: 0.85rem;
+  margin: 2px 0 0;
+}
+
+.lock-screen__submit {
+  margin-top: 8px;
+  padding: 14px;
+  border-radius: 14px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s;
+  box-shadow: 0 12px 28px rgba(124, 92, 255, 0.35);
+}
+
+.lock-screen__submit:active {
+  transform: scale(0.97);
+}
+
+.lock-screen__submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.lock-screen__hint {
+  margin: 20px 0 0;
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  line-height: 1.5;
+}
