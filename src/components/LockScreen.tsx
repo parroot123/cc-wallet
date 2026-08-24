@@ -79,8 +79,8 @@ export function LockScreen({ mode, error, onSubmit }: LockScreenProps) {
         <h1>{mode === "setup" ? "Créer votre coffre" : "Portefeuille verrouillé"}</h1>
         <p className="lock-screen__subtitle">
           {mode === "setup"
-            ? "Choisissez un code d'accès. Il chiffre vos cartes localement — il n'est jamais envoyé où que ce soit."
-            : "Entrez votre code pour accéder à vos cartes."}
+            ? "Choisissez une phrase secrète. Elle chiffre vos cartes sur cet appareil et n'est jamais envoyée où que ce soit — même si vos cartes sont synchronisées."
+            : "Entrez votre phrase secrète pour accéder à vos cartes."}
         </p>
 
         <form onSubmit={handleSubmit} className="lock-screen__form">
@@ -119,8 +119,8 @@ export function LockScreen({ mode, error, onSubmit }: LockScreenProps) {
         </form>
 
         <p className="lock-screen__hint">
-          Tout est stocké chiffré (AES-256) uniquement sur cet appareil.
-          {mode === "setup" && " Aucun moyen de récupérer vos cartes si vous oubliez ce code — notez-le en lieu sûr."}
+          Tout est chiffré (AES-256) avant de quitter cet appareil — y compris en cas de synchronisation.
+          {mode === "setup" && " Aucun moyen de récupérer vos cartes si vous oubliez cette phrase — notez-la en lieu sûr."}
         </p>
       </motion.div>
     </div>

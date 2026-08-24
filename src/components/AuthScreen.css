@@ -1,0 +1,55 @@
+.auth-screen__tabs {
+  display: flex;
+  gap: 6px;
+  padding: 4px;
+  margin: 0 0 20px;
+  border-radius: 14px;
+  background: var(--field-bg);
+  border: 1px solid var(--field-border);
+}
+
+.auth-screen__tab {
+  flex: 1;
+  padding: 9px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.auth-screen__tab--active {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: white;
+}
+
+.auth-screen__notice {
+  color: var(--accent-2);
+  font-size: 0.85rem;
+  line-height: 1.4;
+  margin: 2px 0 0;
+}
+
+.auth-screen__links {
+  display: flex;
+  justify-content: center;
+  margin-top: 14px;
+}
+
+.auth-screen__link {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  padding: 4px;
+}
+
+.auth-screen__link:hover {
+  color: var(--text-primary);
+}
