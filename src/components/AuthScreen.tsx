@@ -34,8 +34,8 @@ export function AuthScreen({ auth }: AuthScreenProps) {
       setSubmitting(true);
       try {
         await auth.completePasswordReset(newPassword);
-      } catch {
-        setLocalError(auth.error ?? "Échec de la mise à jour.");
+      } catch (err) {
+        setLocalError(err instanceof Error ? err.message : "Échec de la mise à jour.");
         triggerShake();
       }
       setSubmitting(false);
@@ -88,8 +88,8 @@ export function AuthScreen({ auth }: AuthScreenProps) {
       try {
         await auth.requestPasswordReset(email);
         setNotice("Si un compte existe pour cet e-mail, un lien de réinitialisation vient d'être envoyé.");
-      } catch {
-        setLocalError(auth.error ?? "Échec de l'envoi.");
+      } catch (err) {
+        setLocalError(err instanceof Error ? err.message : "Échec de l'envoi.");
         triggerShake();
       }
       setSubmitting(false);
@@ -113,8 +113,8 @@ export function AuthScreen({ auth }: AuthScreenProps) {
       } else {
         await auth.signIn(email, password);
       }
-    } catch {
-      setLocalError(auth.error ?? "Une erreur est survenue.");
+    } catch (err) {
+      setLocalError(err instanceof Error ? err.message : "Une erreur est survenue.");
       triggerShake();
     }
     setSubmitting(false);
